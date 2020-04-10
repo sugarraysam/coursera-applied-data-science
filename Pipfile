@@ -7,8 +7,13 @@ verify_ssl = true
 
 [packages]
 notebook = "*"
-numpy = "*"
-pandas = "*"
+numpy = "==1.12"
+pandas = "==0.19"
+scipy = "==0.19"
+xlrd = "==1.0.0"
+matplotlib = "==2.0.0"
+mplleaflet = "*"
+nb-black = "*"
 
 [requires]
 python_version = "3.5"
