@@ -2,3 +2,4 @@
 .vscode/
 .ipynb_checkpoints/
 .ipython/profile_default/history.sqlite
+__pycache__/
