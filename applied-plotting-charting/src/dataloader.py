@@ -54,7 +54,9 @@ class Dataloader:
             },
         )
         df["Transition"] = df["Total"] - df[["Swim", "Bike", "Run"]].sum(axis=1)
-        df[["Name", "Alpha"]] = df[["Name", "Alpha"]].apply(lambda s: s.str.strip())
+        df[["Name", "Alpha", "AgeGroup"]] = df[["Name", "Alpha", "AgeGroup"]].apply(
+            lambda s: s.str.strip()
+        )
         return pd.merge(df, self._load_countries(), on="Alpha")
 
 
@@ -62,4 +64,7 @@ if __name__ == "__main__":
     import pdb
 
     dl = Dataloader()
+    bar_data = dl.ironman.groupby("Country").size() / len(dl.ironman) * 100
+    bar_data.sort_values(inplace=True, ascending=False)
+    bar = bar_data[6:].plot(kind="bar")  # TODO continue
     pdb.set_trace()
