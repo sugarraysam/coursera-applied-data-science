@@ -28,11 +28,7 @@
 # c.InteractiveShellApp.exec_files = []
 
 ## lines of code to run at IPython startup.
-c.InteractiveShellApp.exec_lines = [
-    "import numpy as np",
-    "import pandas as pd",
-    "import scipy",
-]
+# c.InteractiveShellApp.exec_lines = []
 
 ## A list of dotted module names of IPython extensions to load.
 # c.InteractiveShellApp.extensions = []

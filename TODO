@@ -1,22 +1,26 @@
 ###
 ### General
 ###
-- load ipython extensions automatically (nb_black)
-- ipython extension manager?
-- "`IPython.html.widgets` has moved to `ipywidgets`.", ShimWarning)
+- IPython tutorial
+    @https://ipython.readthedocs.io/en/stable/interactive/reference.html
+    @Verbose and colored exception traceback printouts
+
+    -- load ipython extensions automatically (nb_black)
+    -- %load jupyter instead of import
+    -- ipython extension manager?
+    -- "`IPython.html.widgets` has moved to `ipywidgets`.", ShimWarning)
+
+- using matplotlib in python shell:
+    - https://matplotlib.org/users/shell.html
+    - what backend to use matplotlib?
+        -- Tk: pacman tk tcl python-pmw (no work)
+        -- Qt: pacman qt5-base, pip PyQt5 (no work)
+        -- difference tk vs qt?
+
 - integrate Makefile help-system.mak
 
 
 ###
 ### Assignment 4
 ###
-- bar chart top-5 countries + others /w xticks, no ylabel == "%", no yticks, add numbers on top of bars
-- % of country represented 51 out of ?
-- scatter plot everything vs AgeGroup (should see clusters especially for time results)
-- general correlation plot every column vs. distance from Canada (international athletes perform better, per category)
-- groupby category, get mean + std + preview distributions
-- compute p-value and reject/fail-to-reject hypothesis
-- markdown cell explaining limitations
-    = Limitations
-        -> calculating distance from country of origin, not town where athele lives,
-            even if still lives in home country, not using hometown (very rough estimate)
+- compute p-value and reject/fail-to-reject hypothesis (what ratio to use?)

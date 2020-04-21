@@ -15,6 +15,7 @@ matplotlib = "==2.0.0"
 seaborn = "==0.7.1"
 mplleaflet = "*"
 nb-black = "*"
+pyqt5 = "*"
 
 [requires]
 python_version = "3.5"

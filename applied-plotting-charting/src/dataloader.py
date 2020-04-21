@@ -59,12 +59,38 @@ class Dataloader:
         )
         return pd.merge(df, self._load_countries(), on="Alpha")
 
+    def get_top5_countries(self):
+        data = self.ironman.groupby("Alpha").size() / len(self.ironman) * 100
+        data.sort_values(inplace=True, ascending=False)
+        return data[:5].append(pd.Series([data[5:].sum()], index=["Others"]))
+
+    def get_time_means(self):
+        cols = ["AgeGroup", "Swim", "Bike", "Run", "Transition", "Total"]
+        data = self.ironman[cols].groupby("AgeGroup").apply(np.mean)
+        return data.sort_values(by=["Total"]).drop(["Total"], axis=1) / 3600
+
+    def get_dists_quantiles(self):
+        data = self.ironman[["AgeGroup", "DivRank", "Distance"]].copy()
+        cats = [1, 2, 3, 4]
+        data["DivRankQ"] = 0
+        for name, group in data.groupby("AgeGroup"):
+            quants = pd.cut(group["DivRank"], 4, labels=cats)
+            data.loc[quants.index, "DivRankQ"] = quants
+        return data
+
+    def get_ttest_data(self):
+        data = self.ironman[["AgeGroup", "DivRank", "Alpha"]].copy()
+        mask = data["Alpha"] == "CAN"
+        can, others = data[mask], data[~mask]
+        return can["DivRank"], others["DivRank"]
+
+
+class TestClass:
+    def __init__(self):
+        self.val = 42
+
 
 if __name__ == "__main__":
-    import pdb
-
     dl = Dataloader()
-    bar_data = dl.ironman.groupby("Country").size() / len(dl.ironman) * 100
-    bar_data.sort_values(inplace=True, ascending=False)
-    bar = bar_data[6:].plot(kind="bar")  # TODO continue
-    pdb.set_trace()
+    data_quant = dl.get_dists_quantiles()
+    data_ttest = dl.get_ttest_data()
