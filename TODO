@@ -10,17 +10,4 @@
     -- ipython extension manager?
     -- "`IPython.html.widgets` has moved to `ipywidgets`.", ShimWarning)
 
-- using matplotlib in python shell:
-    - https://matplotlib.org/users/shell.html
-    - what backend to use matplotlib?
-        -- Tk: pacman tk tcl python-pmw (no work)
-        -- Qt: pacman qt5-base, pip PyQt5 (no work)
-        -- difference tk vs qt?
-
 - integrate Makefile help-system.mak
-
-
-###
-### Assignment 4
-###
-- compute p-value and reject/fail-to-reject hypothesis (what ratio to use?)
