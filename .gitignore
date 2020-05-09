@@ -4,3 +4,4 @@
 .ipython/*
 !.ipython/profile_default/startup/10-imports.py
 __pycache__/
+debug.py
